@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <section class="bg-orange-500 w-1/2 py-5 text-center font-bold rounded-xl m-3">
+        <h1 class="text-2xl">Product Price: <span id="product-price">1000</span></h1>
+        <br>
+        <button id="btn-apply" class="bg-green-500 px-5 py-2 rounded font-bold">Apply</button>
+        <input id="discount-field" class="border border-red-500 rounded pl-2" type="text"
+            placeholder="Discount Percentage %">
+        <br><br>
+        <h2>Please Pay: <span id="discounted-price">00</span></h2>
+    </section>
+
+    <script>
+        document.getElementById('btn-apply').addEventListener('click', function () {
+            const discountField = document.getElementById('discount-field').value;
+            const discountPercentage = parseFloat(discountField);
+            const productPrice = document.getElementById('product-price').innerText;
+            const discount = (productPrice / 100) * discountPercentage;
+            const result = productPrice - discount
+            const discountedPrice = document.getElementById('discounted-price');
+            discountedPrice.innerText = result
+        })
+
+    </script>
+</body>
+
+</html>
